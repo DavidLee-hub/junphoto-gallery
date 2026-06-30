@@ -1,0 +1,214 @@
+/* write.css - 글쓰기 페이지 */
+
+.write {
+  max-width: 800px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.write__inner {
+  background: #fff;
+}
+
+.write__heading {
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-secondary);
+  display: inline-block;
+}
+
+.write__title {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ── 폼 ── */
+.write__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.write__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.write__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.write__input {
+  height: 44px;
+  padding: 0 var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-base);
+  font-size: var(--font-size-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.write__input:focus {
+  border-color: var(--color-secondary);
+}
+
+.write__textarea {
+  padding: var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-base);
+  font-size: var(--font-size-body);
+  resize: vertical;
+  outline: none;
+  line-height: 1.7;
+  transition: border-color 0.2s;
+}
+
+.write__textarea:focus {
+  border-color: var(--color-secondary);
+}
+
+/* ── 이미지 업로드 ── */
+.write__upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.write__upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-base);
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.write__upload-btn:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.write__upload-name {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* 미리보기 */
+.write__preview {
+  position: relative;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.write__preview img {
+  max-width: 320px;
+  max-height: 200px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.write__preview-del {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── 에러 ── */
+.write__error {
+  font-size: 13px;
+  color: #e53e3e;
+  min-height: 18px;
+}
+
+/* ── 버튼 영역 ── */
+.write__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.write__cancel {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 24px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  color: #555;
+  transition: border-color 0.2s;
+}
+
+.write__cancel:hover {
+  border-color: #aaa;
+}
+
+.write__submit {
+  height: 44px;
+  padding: 0 32px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-family: var(--font-base);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.write__submit:hover {
+  opacity: 0.85;
+}
+
+/* ── 반응형: 태블릿/모바일 ── */
+@media (max-width: 768px) {
+  .write {
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .write {
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .write__actions {
+    flex-direction: column-reverse;
+  }
+
+  .write__cancel,
+  .write__submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .write__preview img {
+    max-width: 100%;
+  }
+}

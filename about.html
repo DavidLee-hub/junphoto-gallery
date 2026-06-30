@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현준의 사진세상 - About</title>
+
+  <!-- SEO -->
+  <meta name="description" content="사진작가 이현준 — 장노출, 궤적, 풍경을 담는 감성 사진작가 소개 페이지입니다.">
+  <meta name="keywords" content="이현준, Lee Hyenjun, 사진작가, 풍경사진, 장노출, 제주">
+  <meta name="author" content="Lee Hyenjun">
+  <link rel="canonical" href="https://junphoto.co.kr/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="현준의 사진세상">
+  <meta property="og:title" content="About — 이현준 Lee Hyenjun">
+  <meta property="og:description" content="장노출, 궤적, 풍경을 담는 사진작가 이현준(Lee Hyenjun)을 소개합니다.">
+  <meta property="og:url" content="https://junphoto.co.kr/about.html">
+  <meta property="og:image" content="https://junphoto.co.kr/프로필사진.jpg">
+  <meta property="og:locale" content="ko_KR">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <!-- 로고 -->
+      <a href="gallery.html" class="header__logo">현준의 사진세상</a>
+
+      <!-- 헤더 우측 아이콘 그룹 -->
+      <div class="header__icons">
+
+        <!-- 관리자 모드 버튼 (관리자 로그인 시만 표시) -->
+        <button class="header__admin-mode" id="adminModeBtn" style="display:none" aria-label="관리자 모드">관리자 모드</button>
+
+        <!-- 햄버거 메뉴 버튼 (태블릿/모바일용) -->
+        <button class="header__hamburger" id="hamburgerBtn" aria-label="메뉴">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+
+        <!-- Board 아이콘 -->
+        <a href="board.html" class="header__board" aria-label="게시판">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </a>
+
+        <!-- 유저 아이콘 -->
+        <button class="header__user" id="userBtn" aria-label="로그인">
+          <svg class="icon-login" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <svg class="icon-logout" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- GNB -->
+    <nav class="gnb">
+      <ul class="gnb__list">
+        <li class="gnb__item">
+          <a href="gallery.html" class="gnb__link">갤러리</a>
+        </li>
+        <li class="gnb__item">
+          <a href="board.html" class="gnb__link">커뮤니티</a>
+        </li>
+        <li class="gnb__item">
+          <a href="about.html" class="gnb__link gnb__link--active">About</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="about">
+
+    <!-- 1. 프로필 섹션 -->
+    <section class="about__profile">
+      <div class="about__profile-inner">
+
+        <!-- 프로필 사진 -->
+        <div class="about__photo-wrap">
+          <img src="프로필사진.jpg" alt="사진작가 이현준" class="about__photo">
+        </div>
+
+        <!-- 소개 텍스트 -->
+        <div class="about__intro">
+          <p class="about__label">Photography by</p>
+          <h1 class="about__name">이현준 <span>Lee Hyenjun</span></h1>
+          <p class="about__tagline">빛과 시간이 머무는 자리를 기록합니다</p>
+          <div class="about__divider"></div>
+          <p class="about__bio">
+            카메라를 들고 새벽을 찾아다니는 사람입니다.<br>
+            장노출로 물과 빛의 흐름을 붙잡고, 별의 궤적을 밤새 추적하고,
+            한 장소를 반복해서 찾아가 그 결을 쌓아갑니다.<br><br>
+            제주에서 태어나 서울에서 자랐고, 오래 지나서야 고향을 카메라로
+            처음 제대로 만났습니다. 그 이후로 사진은 단순한 기록이 아니라
+            장소와 나 사이의 대화가 되었습니다.
+          </p>
+          <div class="about__meta">
+            <span class="about__meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+              Canon EOS
+            </span>
+            <span class="about__meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              서울 · 경기 · 제주
+            </span>
+          </div>
+
+          <!-- 공유 버튼 -->
+          <div class="about__share">
+            <button class="about__share-btn about__share-btn--kakao" onclick="shareAboutPage()" aria-label="카카오톡 공유">
+              <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="" width="20" height="20">
+              카카오톡 공유
+            </button>
+            <button class="about__share-btn" onclick="shareInstagramAbout()" aria-label="인스타그램 공유">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              인스타그램
+            </button>
+            <button class="about__share-btn" onclick="shareNaverBlogAbout()" aria-label="네이버 블로그 공유">
+              <span class="share-naver-icon">N</span>
+              네이버 블로그
+            </button>
+            <button class="about__share-btn" onclick="copyLink('https://junphoto.co.kr/about.html')" aria-label="링크 복사">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+              링크 복사
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. 작업 카테고리 -->
+    <section class="about__works">
+      <div class="about__works-inner">
+        <h2 class="about__section-title">Works</h2>
+        <p class="about__section-sub">장르별 대표 작업</p>
+
+        <div class="about__works-grid">
+
+          <a href="gallery.html" class="about__work-card" data-category="longexposure">
+            <div class="about__work-img" style="background-image:url('img/long-exposure/형제섬 장노출.jpg')"></div>
+            <div class="about__work-info">
+              <span class="about__work-tag">Long Exposure</span>
+              <p class="about__work-desc">물과 빛의 흐름을 느린 셔터로 포착합니다</p>
+            </div>
+          </a>
+
+          <a href="gallery.html" class="about__work-card" data-category="trajectory">
+            <div class="about__work-img" style="background-image:url('img/trajectory/별궤적.jpg')"></div>
+            <div class="about__work-info">
+              <span class="about__work-tag">Trajectory</span>
+              <p class="about__work-desc">밤하늘 별의 궤적과 빛의 흔적을 기록합니다</p>
+            </div>
+          </a>
+
+          <a href="gallery.html" class="about__work-card" data-category="sunrise-sunset">
+            <div class="about__work-img" style="background-image:url('img/sunrise-sunset/호미곳일출.jpg')"></div>
+            <div class="about__work-info">
+              <span class="about__work-tag">Sunrise · Sunset</span>
+              <p class="about__work-desc">하루 중 가장 극적인 빛의 순간을 담습니다</p>
+            </div>
+          </a>
+
+          <a href="gallery.html" class="about__work-card" data-category="series">
+            <div class="about__work-img" style="background-image:url('img/series/jeju/강정천.jpg')"></div>
+            <div class="about__work-info">
+              <span class="about__work-tag">Series</span>
+              <p class="about__work-desc">한 장소를 반복해서 찾아가 시간을 쌓습니다</p>
+            </div>
+          </a>
+
+          <a href="gallery.html" class="about__work-card" data-category="typological">
+            <div class="about__work-img" style="background-image:url('img/typological/lighthouse/_M4A1288 copy.jpg')"></div>
+            <div class="about__work-info">
+              <span class="about__work-tag">Typological</span>
+              <p class="about__work-desc">같은 유형의 피사체를 수집·분류합니다</p>
+            </div>
+          </a>
+
+          <a href="gallery.html" class="about__work-card" data-category="travel">
+            <div class="about__work-img" style="background-image:url('img/travel/gyengsang/하회마을_파노라마-1.jpg')"></div>
+            <div class="about__work-info">
+              <span class="about__work-tag">Travel</span>
+              <p class="about__work-desc">전국의 풍경을 발로 찾아 기록합니다</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 작가 노트 -->
+    <section class="about__note">
+      <div class="about__note-inner">
+        <div class="about__note-label">Artist Note</div>
+        <h2 class="about__note-title">
+          Jeju: A Homeland Remembered Late
+          <span>늦게 도착한 고향의 취향을 따라</span>
+        </h2>
+        <div class="about__note-body">
+          <p>
+            나는 제주에서 태어났으나, 어릴 무렵 서울로 올라오며 고향의 풍경을
+            기억할 나이가 되도록 돌아오지 못했다. 어린 시절을 서울에서 보내면서,
+            제주라는 지명은 출생지일 뿐 나의 정체성을 구성하는 요소로 받아들이지
+            않았다. 기억도, 문화도, 경험도 없었기 때문이다.
+          </p>
+          <p>
+            그러나 직장 생활 중 어느 날, 처음으로 제주를 찾았을 때 예상치 못한
+            감정이 찾아왔다. 뚜렷이 기억하지 못하는 장소임에도 설명하기 어려운
+            친숙함이 겹쳐 보였고, 제주가 단순한 출생지가 아닌 돌아와야 할 곳이라는
+            사실을 어디선가 깨달았다. 이후 제주를 여러 차례 찾게 되었고, 그
+            과정에서 잊혔던 정체감이 차분히 쌓이기 시작했다.
+          </p>
+          <p>
+            이 작업은 그 과정의 결과로, 이제야 비로소 바라볼 수 있게 된
+            늦게 도착한 고향의 풍경에 관한 기록이다. 새벽의 바람, 낮의 수평선,
+            황혼의 겹겹이 쌓이는 빛, 그리고 밤의 어둠이 품은 깊은 명암 — 이 모든
+            장면이 태생 모르고 지내온 고향을 어루만지고 있었다. 카메라를 통해
+            제주의 결을 새롭게 쌓아가는 것이 고향을 회복하는 과정이기도 했다.
+          </p>
+          <p>
+            기억으로 존재하지 않더라도, 나의 어느 지점에서 다시 만나지는
+            또 다른 형태의 고향이 나를 기다릴 것임을 조용히 예감할 수 있기를 바란다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 로그인 모달 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" id="modalClose">&times;</button>
+      <h2 class="modal__title">현준의 사진세상</h2>
+      <div class="modal__tabs">
+        <button class="modal__tab is-active" data-tab="login">로그인</button>
+        <button class="modal__tab" data-tab="signup">회원가입</button>
+      </div>
+      <div class="modal__form" id="loginForm">
+        <input type="email" id="loginEmail" placeholder="이메일">
+        <input type="password" id="loginPassword" placeholder="비밀번호">
+        <p class="modal__error" id="loginError"></p>
+        <button class="modal__submit" id="loginSubmit">로그인</button>
+      </div>
+      <div class="modal__form" id="signupForm" style="display:none">
+        <input type="email" id="signupEmail" placeholder="이메일">
+        <input type="password" id="signupPassword" placeholder="비밀번호 (6자 이상)">
+        <p class="modal__error" id="signupError"></p>
+        <button class="modal__submit" id="signupSubmit">회원가입</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 링크 복사 토스트 -->
+  <div class="copy-toast" id="copyToast">링크가 복사되었습니다</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
+  <script src="js/supabase.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/header.js?v=5"></script>
+  <script src="js/kakao-share.js?v=5"></script>
+  <script src="js/no-download.js?v=5"></script>
+</body>
+</html>

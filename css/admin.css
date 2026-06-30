@@ -1,0 +1,255 @@
+/* admin.css - 갤러리 관리 페이지 */
+
+.admin {
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.admin__inner {
+  background: #fff;
+}
+
+/* ── 헤딩 ── */
+.admin__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+.admin__title {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.admin__back-link {
+  font-size: 14px;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.admin__back-link:hover { color: var(--color-secondary); }
+
+/* ── 섹션 제목 ── */
+.admin__section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+/* ── 사진 추가 폼 ── */
+.admin__form-wrap {
+  background: #f8f8f8;
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+
+.admin__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin__label {
+  width: 160px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.admin__label small {
+  font-weight: 400;
+  color: #aaa;
+}
+
+.admin__input {
+  flex: 1;
+  height: 44px;
+  padding: 0 var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-base);
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.admin__input:focus { border-color: var(--color-secondary); }
+
+.admin__input--short { flex: 0 0 120px; }
+
+.admin__select {
+  flex: 1;
+  max-width: 240px;
+  height: 44px;
+  padding: 0 var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-base);
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.admin__error {
+  font-size: 13px;
+  color: #e53e3e;
+  min-height: 18px;
+}
+
+.admin__submit {
+  align-self: flex-start;
+  height: 44px;
+  padding: 0 32px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-family: var(--font-base);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.admin__submit:hover { opacity: 0.85; }
+
+/* ── 카테고리 필터 ── */
+.admin__filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.admin__filter-btn {
+  height: 34px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-family: var(--font-base);
+  font-size: 13px;
+  color: #666;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin__filter-btn:hover,
+.admin__filter-btn.is-active {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: var(--color-secondary);
+}
+
+/* ── 사진 그리드 ── */
+.admin__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.admin__card {
+  border: 1px solid #eee;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+.admin__card-img {
+  width: 100%;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f0f0f0;
+}
+
+.admin__card-info {
+  padding: 10px 12px;
+}
+
+.admin__card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin__card-meta {
+  font-size: 11px;
+  color: var(--color-secondary);
+  margin-bottom: 4px;
+}
+
+.admin__card-path {
+  font-size: 10px;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin__card-del {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.admin__card:hover .admin__card-del { opacity: 1; }
+
+.admin__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 0;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .admin { margin: 24px auto; padding: 0 16px; }
+
+  .admin__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .admin__label { width: auto; }
+  .admin__input,
+  .admin__select { max-width: 100%; }
+
+  .admin__grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

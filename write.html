@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현준의 사진세상 - 글쓰기</title>
+
+  <!-- SEO -->
+  <meta name="author" content="Lee Hyenjun">
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/write.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="gallery.html" class="header__logo">현준의 사진세상</a>
+      <div class="header__icons">
+        <a href="board.html" class="header__board" aria-label="게시판">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </a>
+        <!-- 관리자 모드 버튼 (관리자 로그인 시만 표시) -->
+        <button class="header__admin-mode" id="adminModeBtn" style="display:none" aria-label="관리자 모드">관리자 모드</button>
+
+        <!-- 햄버거 메뉴 버튼 (태블릿/모바일용) -->
+        <button class="header__hamburger" id="hamburgerBtn" aria-label="메뉴">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <button class="header__user" id="userBtn" aria-label="로그인">
+          <svg class="icon-login" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <svg class="icon-logout" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav class="gnb">
+      <ul class="gnb__list">
+        <li class="gnb__item"><a href="gallery.html" class="gnb__link">longexposure</a></li>
+        <li class="gnb__item gnb__item--has-sub">
+          <a href="gallery.html" class="gnb__link">series</a>
+          <ul class="gnb__sub">
+            <li><a href="gallery.html">goyang-ilsan</a></li>
+            <li><a href="gallery.html">jeju</a></li>
+          </ul>
+        </li>
+        <li class="gnb__item"><a href="gallery.html" class="gnb__link">sunrise-sunset</a></li>
+        <li class="gnb__item"><a href="gallery.html" class="gnb__link">trajectory</a></li>
+        <li class="gnb__item gnb__item--has-sub">
+          <a href="gallery.html" class="gnb__link">travel</a>
+          <ul class="gnb__sub">
+            <li><a href="gallery.html">chungcheong</a></li>
+            <li><a href="gallery.html">gangwon</a></li>
+            <li><a href="gallery.html">gyengsang</a></li>
+            <li><a href="gallery.html">incheon</a></li>
+            <li><a href="gallery.html">jeolla</a></li>
+            <li><a href="gallery.html">jeju</a></li>
+            <li><a href="gallery.html">seoul-gyenggi</a></li>
+          </ul>
+        </li>
+        <li class="gnb__item"><a href="gallery.html" class="gnb__link">typological</a></li>
+        <li class="gnb__item"><a href="board.html" class="gnb__link gnb__link--community is-active">커뮤니티</a></li>
+        <li class="gnb__item"><a href="about.html" class="gnb__link">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 글쓰기 폼 -->
+  <main class="write">
+    <div class="write__inner">
+
+      <div class="write__heading">
+        <h2 class="write__title">글쓰기</h2>
+      </div>
+
+      <form class="write__form" id="writeForm">
+
+        <!-- 비회원 닉네임 (비로그인 시 표시) -->
+        <div class="write__field" id="guestNameField" style="display:none">
+          <label class="write__label" for="guestName">닉네임 <span style="color:#e07b54">*</span></label>
+          <input type="text" id="guestName" class="write__input" placeholder="닉네임을 입력하세요" maxlength="20">
+        </div>
+
+        <!-- 제목 -->
+        <div class="write__field">
+          <label class="write__label" for="postTitle">제목</label>
+          <input type="text" id="postTitle" class="write__input" placeholder="제목을 입력하세요" maxlength="100">
+        </div>
+
+        <!-- 내용 -->
+        <div class="write__field">
+          <label class="write__label" for="postContent">내용</label>
+          <textarea id="postContent" class="write__textarea" placeholder="내용을 입력하세요" rows="12"></textarea>
+        </div>
+
+        <!-- 이미지 업로드 -->
+        <div class="write__field">
+          <label class="write__label">이미지 첨부 (선택)</label>
+          <div class="write__upload" id="uploadArea">
+            <input type="file" id="postImage" accept="image/*" hidden>
+            <button type="button" class="write__upload-btn" id="uploadBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+              이미지 선택
+            </button>
+            <p class="write__upload-name" id="uploadName">선택된 파일 없음</p>
+          </div>
+          <!-- 미리보기 -->
+          <div class="write__preview" id="previewWrap" style="display:none">
+            <img id="previewImg" src="" alt="미리보기">
+            <button type="button" class="write__preview-del" id="previewDel">✕</button>
+          </div>
+        </div>
+
+        <p class="write__error" id="writeError"></p>
+
+        <!-- 버튼 -->
+        <div class="write__actions">
+          <a href="board.html" class="write__cancel">취소</a>
+          <button type="submit" class="write__submit">등록</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- 로그인 모달 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" id="modalClose">&times;</button>
+      <h2 class="modal__title">현준의 사진세상</h2>
+      <div class="modal__tabs">
+        <button class="modal__tab is-active" data-tab="login">로그인</button>
+        <button class="modal__tab" data-tab="signup">회원가입</button>
+      </div>
+      <div class="modal__form" id="loginForm">
+        <input type="email" id="loginEmail" placeholder="이메일">
+        <input type="password" id="loginPassword" placeholder="비밀번호">
+        <p class="modal__error" id="loginError"></p>
+        <button class="modal__submit" id="loginSubmit">로그인</button>
+      </div>
+      <div class="modal__form" id="signupForm" style="display:none">
+        <input type="email" id="signupEmail" placeholder="이메일">
+        <input type="password" id="signupPassword" placeholder="비밀번호 (6자 이상)">
+        <p class="modal__error" id="signupError"></p>
+        <button class="modal__submit" id="signupSubmit">회원가입</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/header.js?v=5"></script>
+  <script src="js/write.js?v=5"></script>
+</body>
+</html>

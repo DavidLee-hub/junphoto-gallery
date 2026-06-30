@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현준의 사진세상 - 갤러리 관리</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="gallery.html" class="header__logo">현준의 사진세상</a>
+      <div class="header__icons">
+        <button class="header__admin-mode" id="adminModeBtn" style="display:none" aria-label="관리자 모드">관리자 모드</button>
+        <button class="header__user" id="userBtn" aria-label="로그인">
+          <svg class="icon-login" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <svg class="icon-logout" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 관리자 메인 -->
+  <main class="admin" id="adminMain" style="display:none">
+    <div class="admin__inner">
+
+      <div class="admin__heading">
+        <h2 class="admin__title">갤러리 사진 관리</h2>
+        <a href="gallery.html" class="admin__back-link">← 갤러리로</a>
+      </div>
+
+      <!-- 사진 추가 폼 -->
+      <section class="admin__form-wrap">
+        <h3 class="admin__section-title">사진 추가</h3>
+        <form class="admin__form" id="addPhotoForm">
+          <div class="admin__row">
+            <label class="admin__label">제목</label>
+            <input type="text" class="admin__input" id="photoTitle" placeholder="사진 제목">
+          </div>
+          <div class="admin__row">
+            <label class="admin__label">카테고리</label>
+            <select class="admin__select" id="photoCategory">
+              <option value="longexposure">longexposure</option>
+              <option value="series">series</option>
+              <option value="sunrise-sunset">sunrise-sunset</option>
+              <option value="trajectory">trajectory</option>
+              <option value="travel">travel</option>
+              <option value="typological">typological</option>
+              <option value="recent">recent</option>
+            </select>
+          </div>
+          <div class="admin__row">
+            <label class="admin__label">서브카테고리 <small>(선택)</small></label>
+            <input type="text" class="admin__input" id="photoSubcategory" placeholder="예: goyang-ilsan, jeju (없으면 비워두세요)">
+          </div>
+          <div class="admin__row">
+            <label class="admin__label">이미지 경로 / URL</label>
+            <input type="text" class="admin__input" id="photoPath" placeholder="img/longexposure/파일명.jpg 또는 https://...">
+          </div>
+          <div class="admin__row">
+            <label class="admin__label">정렬 순서 <small>(숫자가 작을수록 앞)</small></label>
+            <input type="number" class="admin__input admin__input--short" id="photoSort" value="0">
+          </div>
+          <p class="admin__error" id="addPhotoError"></p>
+          <button type="submit" class="admin__submit">추가</button>
+        </form>
+      </section>
+
+      <!-- 사진 목록 -->
+      <section class="admin__list-wrap">
+        <h3 class="admin__section-title">등록된 사진 <span id="photoCount"></span></h3>
+
+        <!-- 카테고리 필터 -->
+        <div class="admin__filter">
+          <button class="admin__filter-btn is-active" data-filter="all">전체</button>
+          <button class="admin__filter-btn" data-filter="longexposure">longexposure</button>
+          <button class="admin__filter-btn" data-filter="series">series</button>
+          <button class="admin__filter-btn" data-filter="sunrise-sunset">sunrise-sunset</button>
+          <button class="admin__filter-btn" data-filter="trajectory">trajectory</button>
+          <button class="admin__filter-btn" data-filter="travel">travel</button>
+          <button class="admin__filter-btn" data-filter="typological">typological</button>
+          <button class="admin__filter-btn" data-filter="recent">recent</button>
+        </div>
+
+        <div class="admin__grid" id="photoGrid">
+          <!-- JS로 동적 삽입 -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 로그인 모달 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" id="modalClose">&times;</button>
+      <h2 class="modal__title">현준의 사진세상</h2>
+      <div class="modal__tabs">
+        <button class="modal__tab is-active" data-tab="login">로그인</button>
+        <button class="modal__tab" data-tab="signup">회원가입</button>
+      </div>
+      <div class="modal__form" id="loginForm">
+        <input type="email" id="loginEmail" placeholder="이메일">
+        <input type="password" id="loginPassword" placeholder="비밀번호">
+        <p class="modal__error" id="loginError"></p>
+        <button class="modal__submit" id="loginSubmit">로그인</button>
+      </div>
+      <div class="modal__form" id="signupForm" style="display:none">
+        <input type="email" id="signupEmail" placeholder="이메일">
+        <input type="password" id="signupPassword" placeholder="비밀번호 (6자 이상)">
+        <p class="modal__error" id="signupError"></p>
+        <button class="modal__submit" id="signupSubmit">회원가입</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/header.js?v=5"></script>
+  <script src="js/admin.js?v=5"></script>
+</body>
+</html>

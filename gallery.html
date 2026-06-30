@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현준의 사진세상 - 갤러리</title>
+
+  <!-- SEO -->
+  <meta name="description" content="현준의 사진 세상 갤러리 — 장노출, 궤적, 시리즈, 일출·일몰, 여행 카테고리별 사진을 감상하세요.">
+  <meta name="keywords" content="사진갤러리, 풍경사진, 장노출, 궤적사진, 일출, 일몰, 여행사진, Lee Hyenjun, 현준">
+  <meta name="author" content="Lee Hyenjun">
+  <link rel="canonical" href="https://junphoto.co.kr/gallery.html">
+
+  <!-- Open Graph (SNS 공유 미리보기) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="현준의 사진세상">
+  <meta property="og:title" content="현준의 사진세상 - 갤러리">
+  <meta property="og:description" content="장노출, 궤적, 시리즈, 일출·일몰, 여행 카테고리별 사진을 감상하세요 — Photography by Lee Hyenjun">
+  <meta property="og:url" content="https://junphoto.co.kr/gallery.html">
+  <meta property="og:image" content="https://junphoto.co.kr/img/long-exposure/0H6A2467.jpg">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- 트위터 카드 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="현준의 사진세상 - 갤러리">
+  <meta name="twitter:description" content="장노출, 궤적, 시리즈, 일출·일몰, 여행 카테고리별 사진을 감상하세요 — Photography by Lee Hyenjun">
+  <meta name="twitter:image" content="https://junphoto.co.kr/img/long-exposure/0H6A2467.jpg">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <!-- 로고 -->
+      <a href="gallery.html" class="header__logo">현준의 사진세상</a>
+
+      <!-- 헤더 우측 아이콘 그룹 -->
+      <div class="header__icons">
+
+        <!-- 관리자 모드 버튼 (관리자 로그인 시만 표시) -->
+        <button class="header__admin-mode" id="adminModeBtn" style="display:none" aria-label="관리자 모드">관리자 모드</button>
+
+        <!-- 햄버거 메뉴 버튼 (태블릿/모바일용) -->
+        <button class="header__hamburger" id="hamburgerBtn" aria-label="메뉴">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+
+        <!-- Board 아이콘 -->
+        <a href="board.html" class="header__board" aria-label="게시판">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </a>
+
+        <!-- 유저 아이콘 (로그아웃 상태: 로그인 모달 / 로그인 상태: 로그아웃) -->
+        <button class="header__user" id="userBtn" aria-label="로그인">
+          <!-- 사람 아이콘 (기본) -->
+          <svg class="icon-login" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <!-- 로그아웃 아이콘 (로그인 시 표시) -->
+          <svg class="icon-logout" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- GNB 카테고리 -->
+    <nav class="gnb">
+      <ul class="gnb__list">
+        <li class="gnb__item">
+          <a href="#" class="gnb__link" data-category="longexposure">longexposure</a>
+        </li>
+        <li class="gnb__item gnb__item--has-sub">
+          <a href="#" class="gnb__link" data-category="series">series</a>
+          <ul class="gnb__sub">
+            <li><a href="#" data-category="series" data-subcategory="goyang-ilsan">goyang-ilsan</a></li>
+            <li><a href="#" data-category="series" data-subcategory="jeju">jeju</a></li>
+          </ul>
+        </li>
+        <li class="gnb__item">
+          <a href="#" class="gnb__link" data-category="sunrise-sunset">sunrise-sunset</a>
+        </li>
+        <li class="gnb__item">
+          <a href="#" class="gnb__link" data-category="trajectory">trajectory</a>
+        </li>
+        <li class="gnb__item gnb__item--has-sub">
+          <a href="#" class="gnb__link" data-category="travel">travel</a>
+          <ul class="gnb__sub">
+            <li><a href="#" data-category="travel" data-subcategory="chungcheong">chungcheong</a></li>
+            <li><a href="#" data-category="travel" data-subcategory="gangwon">gangwon</a></li>
+            <li><a href="#" data-category="travel" data-subcategory="gyengsang">gyengsang</a></li>
+            <li><a href="#" data-category="travel" data-subcategory="incheon">incheon</a></li>
+            <li><a href="#" data-category="travel" data-subcategory="jeolla">jeolla</a></li>
+            <li><a href="#" data-category="travel" data-subcategory="jeju">jeju</a></li>
+            <li><a href="#" data-category="travel" data-subcategory="seoul-gyenggi">seoul-gyenggi</a></li>
+          </ul>
+        </li>
+        <li class="gnb__item">
+          <a href="#" class="gnb__link" data-category="typological">typological</a>
+        </li>
+        <li class="gnb__item">
+          <a href="board.html" class="gnb__link gnb__link--community">커뮤니티</a>
+        </li>
+        <li class="gnb__item">
+          <a href="about.html" class="gnb__link">About</a>
+        </li>
+        <!-- 관리자 전용 메뉴 (JS로 표시 제어) -->
+        <li class="gnb__item" id="gnbAdminMenu" style="display:none">
+          <a href="admin.html" class="gnb__link gnb__link--admin">갤러리 관리</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 히어로 슬라이더 -->
+  <section class="hero">
+
+    <!-- 메인 이미지 -->
+    <div class="hero__slide"></div>
+
+    <!-- 초기 로딩 표시 -->
+    <div class="hero__loading" id="heroLoading">Loading…</div>
+
+    <!-- 사진 카운터 -->
+    <div class="hero__counter" id="heroCounter"></div>
+
+    <!-- 좌우 화살표 -->
+    <button class="hero__arrow hero__arrow--prev" aria-label="이전 사진">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <button class="hero__arrow hero__arrow--next" aria-label="다음 사진">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+    <!-- 썸네일 (좌측 세로 배열) -->
+    <div class="hero__thumbnails">
+      <ul class="hero__thumb-list"></ul>
+    </div>
+
+    <!-- SNS 공유 버튼 (우측 세로 배열) -->
+    <div class="hero__share">
+      <button class="hero__share-btn" onclick="shareCurrentPhoto()" aria-label="카카오톡 공유">
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="카카오톡 공유" width="22" height="22">
+        <span>카카오톡 공유</span>
+      </button>
+      <button class="hero__share-btn" onclick="shareInstagram()" aria-label="인스타그램 공유">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        <span>인스타그램</span>
+      </button>
+      <button class="hero__share-btn" onclick="shareNaverBlog()" aria-label="네이버 블로그 공유">
+        <span class="share-naver-icon">N</span>
+        <span>네이버 블로그</span>
+      </button>
+      <button class="hero__share-btn" onclick="copyLink()" aria-label="링크 복사">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <span>링크 복사</span>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- 링크 복사 토스트 -->
+  <div class="copy-toast" id="copyToast">링크가 복사되었습니다</div>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+
+    <!-- 전체 목록 보기 버튼 -->
+    <div class="footer__toggle">
+      <button class="footer__toggle-btn" id="toggleGridBtn">
+        전체 목록 보기
+        <svg class="footer__toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 전체 사진 그리드 (초기 숨김) -->
+    <div class="footer__grid" id="footerGrid">
+      <ul class="footer__grid-list" id="footerGridList"></ul>
+    </div>
+
+  </footer>
+
+  <!-- 로그인 모달 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" id="modalClose">&times;</button>
+      <h2 class="modal__title">현준의 사진세상</h2>
+      <div class="modal__tabs">
+        <button class="modal__tab is-active" data-tab="login">로그인</button>
+        <button class="modal__tab" data-tab="signup">회원가입</button>
+      </div>
+      <!-- 로그인 폼 -->
+      <div class="modal__form" id="loginForm">
+        <input type="email" id="loginEmail" placeholder="이메일">
+        <input type="password" id="loginPassword" placeholder="비밀번호">
+        <p class="modal__error" id="loginError"></p>
+        <button class="modal__submit" id="loginSubmit">로그인</button>
+      </div>
+      <!-- 회원가입 폼 -->
+      <div class="modal__form" id="signupForm" style="display:none">
+        <input type="email" id="signupEmail" placeholder="이메일">
+        <input type="password" id="signupPassword" placeholder="비밀번호 (6자 이상)">
+        <p class="modal__error" id="signupError"></p>
+        <button class="modal__submit" id="signupSubmit">회원가입</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
+  <script src="js/supabase.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/header.js?v=5"></script>
+  <script src="js/gallery.js?v=6"></script>
+  <script src="js/kakao-share.js?v=5"></script>
+  <script src="js/no-download.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* post.css - 게시글 상세 페이지 */
+
+.post {
+  max-width: 800px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.post__inner {
+  background: #fff;
+}
+
+/* ── 게시글 헤더 ── */
+.post__header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.post__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.post__meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* 수정/삭제 버튼 */
+.post__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.post__edit-btn,
+.post__del-btn {
+  height: 32px;
+  padding: 0 16px;
+  font-family: var(--font-base);
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.post__edit-btn {
+  background: #f0f0f0;
+  color: #555;
+  border: 1px solid #ddd;
+}
+
+.post__del-btn {
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+}
+
+.post__edit-btn:hover { opacity: 0.8; }
+.post__del-btn:hover  { opacity: 0.8; }
+
+/* ── 본문 ── */
+.post__content {
+  font-size: var(--font-size-body);
+  line-height: 1.8;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  margin-bottom: 32px;
+  min-height: 200px;
+}
+
+/* 첨부 이미지 */
+.post__image {
+  margin-bottom: 32px;
+}
+
+.post__image img {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+/* ── 좋아요 버튼 ── */
+.post__like {
+  margin-bottom: 24px;
+}
+
+.post__like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-family: var(--font-base);
+  font-size: 14px;
+  color: #888;
+  background: #fff;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.post__like-btn:hover {
+  color: #e53e3e;
+  border-color: #e53e3e;
+}
+
+.post__like-btn.is-liked {
+  color: #e53e3e;
+  border-color: #e53e3e;
+}
+
+/* ── 목록 버튼 ── */
+.post__back {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 40px;
+  transition: border-color 0.2s;
+}
+
+.post__back:hover { border-color: #aaa; }
+
+/* ── 댓글 영역 ── */
+.post__comments {
+  border-top: 1px solid #eee;
+  padding-top: 32px;
+}
+
+.post__comments-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+/* 댓글 작성 */
+.comment__form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.comment__input {
+  flex: 1;
+  height: 44px;
+  padding: 0 var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-base);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.comment__input:focus { border-color: var(--color-secondary); }
+
+/* 비회원 닉네임 입력 필드 */
+.comment__input--name {
+  flex: 0 0 120px;
+}
+
+.comment__submit {
+  height: 44px;
+  padding: 0 20px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-family: var(--font-base);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.comment__submit:hover { opacity: 0.85; }
+
+/* 댓글 목록 */
+.comment__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment__item {
+  padding: 14px 16px;
+  background: #f8f8f8;
+  border-radius: var(--radius-sm);
+}
+
+.comment__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.comment__author {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.comment__date {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.comment__text {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.comment__del {
+  font-size: 12px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.comment__del:hover { color: #e53e3e; }
+
+.comment__empty {
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ── 반응형: 태블릿/모바일 ── */
+@media (max-width: 768px) {
+  .post {
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .post__title { font-size: 18px; }
+
+  .comment__form {
+    flex-direction: column;
+  }
+
+  .comment__submit {
+    width: 100%;
+  }
+}

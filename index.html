@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현준의 사진세상</title>
+
+  <!-- Google Search Console 소유권 확인 -->
+  <meta name="google-site-verification" content="KTpPp2FNvdy-7erQv3ri1FPBnvsKh9dWcdevnDtgRgw" />
+  <!-- 네이버 서치어드바이저 소유권 확인 -->
+  <meta name="naver-site-verification" content="b8f3924789feaf7d4a7ba2aa6656b5fa5f80dc4f" />
+
+  <!-- SEO -->
+  <meta name="description" content="현준의 사진 세상 — 장노출, 궤적, 일출·일몰, 여행 풍경을 담은 감성 사진 갤러리입니다.">
+  <meta name="keywords" content="사진갤러리, 풍경사진, 장노출, 궤적사진, 일출, 일몰, 여행사진, Lee Hyenjun, 현준">
+  <meta name="author" content="Lee Hyenjun">
+  <link rel="canonical" href="https://junphoto.co.kr/">
+
+  <!-- Open Graph (SNS 공유 미리보기) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="현준의 사진세상">
+  <meta property="og:title" content="현준의 사진세상">
+  <meta property="og:description" content="장노출, 궤적, 일출·일몰, 여행 풍경을 담은 감성 사진 갤러리 — Photography by Lee Hyenjun">
+  <meta property="og:url" content="https://junphoto.co.kr/">
+  <meta property="og:image" content="https://junphoto.co.kr/img/long-exposure/0H6A2467.jpg">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- 트위터 카드 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="현준의 사진세상">
+  <meta name="twitter:description" content="장노출, 궤적, 일출·일몰, 여행 풍경을 담은 감성 사진 갤러리 — Photography by Lee Hyenjun">
+  <meta name="twitter:image" content="https://junphoto.co.kr/img/long-exposure/0H6A2467.jpg">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/intro.css">
+</head>
+<body>
+
+  <!-- 인트로 페이지 -->
+  <main class="intro">
+
+    <!-- 배경 이미지 (JS로 photos.json 마지막 사진 삽입) -->
+    <div class="intro__bg" id="introBg"></div>
+
+    <!-- 어두운 오버레이 -->
+    <div class="intro__overlay"></div>
+
+    <!-- 중앙 콘텐츠 -->
+    <div class="intro__content">
+      <h1 class="intro__title">현준의 사진 세상</h1>
+      <p class="intro__sub">Photography by Lee Hyenjun</p>
+      <a href="gallery.html" class="intro__btn">갤러리 입장</a>
+    </div>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js?v=5"></script>
+  <script src="js/intro.js?v=5"></script>
+  <script src="js/no-download.js?v=5"></script>
+</body>
+</html>
