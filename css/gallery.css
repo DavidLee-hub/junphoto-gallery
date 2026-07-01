@@ -101,7 +101,7 @@
   top: 20px;    /* 24px - padding 4px */
   bottom: 20px; /* 24px - padding 4px */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 4px; /* scale(1.07) 클리핑 방지 */
   z-index: 10;
 }
