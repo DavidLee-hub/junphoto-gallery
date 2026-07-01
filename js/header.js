@@ -2,14 +2,17 @@
 
 const header = document.getElementById('header');
 
-// ── 관리자 로그인 시 갤러리 관리 메뉴 표시 ──
-document.addEventListener('DOMContentLoaded', async () => {
+// ── 관리자 로그인 시 갤러리 관리 메뉴 표시 (로그인 상태 변경 시에도 실시간 반영) ──
+document.addEventListener('DOMContentLoaded', () => {
   const gnbAdminMenu = document.getElementById('gnbAdminMenu');
   if (!gnbAdminMenu) return;
-  try {
-    const { data } = await _supabase.auth.getSession();
-    if (isAdmin(data?.session)) gnbAdminMenu.style.display = '';
-  } catch(e) { /* 세션 없음 */ }
+
+  const updateAdminMenu = session => {
+    gnbAdminMenu.style.display = isAdmin(session) ? '' : 'none';
+  };
+
+  _supabase.auth.getSession().then(({ data }) => updateAdminMenu(data?.session));
+  _supabase.auth.onAuthStateChange((_event, session) => updateAdminMenu(session));
 });
 
 // 스크롤 시 헤더에 is-scrolled 클래스 토글
