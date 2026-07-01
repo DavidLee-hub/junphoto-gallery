@@ -114,7 +114,11 @@ function initAddForm(session) {
 async function deletePhoto(id) {
   if (!confirm('이 사진을 갤러리에서 삭제하시겠습니까?')) return;
 
-  const { error } = await _supabase.from('gallery_photos').delete().eq('id', id);
-  if (error) { alert('삭제에 실패했습니다.'); return; }
+  const { data, error } = await _supabase.from('gallery_photos').delete().eq('id', id).select();
+  if (error) { alert('삭제에 실패했습니다: ' + error.message); return; }
+  if (!data || data.length === 0) {
+    alert('삭제되지 않았습니다 (권한 문제로 추정, RLS 정책 확인 필요). 삭제된 건수: 0');
+    return;
+  }
   await loadPhotos();
 }
