@@ -125,19 +125,9 @@ body {
 .header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 var(--spacing-lg);
   height: var(--header-height);
-}
-
-/* 로고 */
-.header__logo {
-  flex-shrink: 0;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-secondary);
-  letter-spacing: -0.3px;
-  white-space: nowrap;
 }
 
 /* 검색바 */
@@ -551,9 +541,6 @@ body {
 @media (max-width: 480px) {
   /* 검색바 숨김 */
   .header__search { display: none; }
-
-  /* 로고 크기 축소 */
-  .header__logo { font-size: 15px; }
 
   /* 폰트 크기 축소 */
   :root {
