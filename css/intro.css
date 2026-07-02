@@ -62,6 +62,29 @@ html, body {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* 메인 사이트로 이동 링크 */
+.intro__home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.intro__home:hover {
+  background: rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
 /* 갤러리 입장 버튼 */
 .intro__btn {
   display: inline-flex;

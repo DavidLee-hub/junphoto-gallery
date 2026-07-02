@@ -205,6 +205,21 @@ body {
   color: var(--color-secondary);
 }
 
+/* 메인 사이트(www.junphoto.co.kr)로 이동 아이콘 */
+.header__home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.header__home:hover {
+  color: var(--color-secondary);
+}
+
 /* 유저 아이콘 */
 .header__user {
   display: flex;
