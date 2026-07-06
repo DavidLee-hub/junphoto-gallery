@@ -13,3 +13,7 @@ Thumbs.db
 
 # 참고 자료 (커밋 제외)
 ref/
+
+# 마이그레이션 스크립트 의존성/백업 (일회성 도구, 커밋 제외)
+node_modules/
+scripts/migration-backup-*.json

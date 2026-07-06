@@ -51,7 +51,7 @@ function renderGrid(filter) {
 
   grid.innerHTML = filtered.map(photo => `
     <div class="admin__card" data-id="${photo.id}">
-      <div class="admin__card-img" style="background-image:url('${photo.path}')"></div>
+      <div class="admin__card-img" style="background-image:url('${photo.thumb_path || photo.path}')"></div>
       <div class="admin__card-info">
         <p class="admin__card-title">${photo.title}</p>
         <p class="admin__card-meta">${photo.category}${photo.subcategory ? ' / ' + photo.subcategory : ''}</p>
@@ -79,34 +79,94 @@ function initFilter() {
   });
 }
 
-// ── 사진 추가 ──
+// ── 이미지 리사이즈 (캔버스 사용, 원본보다 크게 확대하지 않음) ──
+function resizeImageToBlob(file, maxWidth, quality) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+
+    img.onload = () => {
+      const scale = Math.min(1, maxWidth / img.naturalWidth);
+      const w = Math.round(img.naturalWidth * scale);
+      const h = Math.round(img.naturalHeight * scale);
+
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+
+      canvas.toBlob(blob => {
+        URL.revokeObjectURL(url);
+        blob ? resolve(blob) : reject(new Error('이미지 변환에 실패했습니다.'));
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('이미지를 불러올 수 없습니다.')); };
+    img.src = url;
+  });
+}
+
+// ── 사진 추가 (파일 업로드 → 2000px/400px 리사이즈 → Storage 업로드 → DB 저장) ──
 function initAddForm(session) {
-  const form    = document.getElementById('addPhotoForm');
-  const errorEl = document.getElementById('addPhotoError');
+  const form      = document.getElementById('addPhotoForm');
+  const errorEl   = document.getElementById('addPhotoError');
+  const submitBtn = form.querySelector('.admin__submit');
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
     errorEl.textContent = '';
 
     const title       = document.getElementById('photoTitle').value.trim();
-    const category    = document.getElementById('photoCategory').value;
-    const subcategory = document.getElementById('photoSubcategory').value.trim() || null;
-    const path        = document.getElementById('photoPath').value.trim();
-    const sort_order  = Number(document.getElementById('photoSort').value) || 0;
+    const category     = document.getElementById('photoCategory').value;
+    const subcategory  = document.getElementById('photoSubcategory').value.trim() || null;
+    const sort_order   = Number(document.getElementById('photoSort').value) || 0;
+    const file          = document.getElementById('photoFile').files[0];
 
     if (!title) { errorEl.textContent = '제목을 입력해주세요.'; return; }
-    if (!path)  { errorEl.textContent = '이미지 경로 또는 URL을 입력해주세요.'; return; }
+    if (!file)  { errorEl.textContent = '사진 파일을 선택해주세요.'; return; }
 
-    const { error } = await _supabase.from('gallery_photos').insert({
-      title, category, subcategory, path, sort_order
-    });
+    submitBtn.disabled = true;
+    submitBtn.textContent = '업로드 중...';
 
-    if (error) { errorEl.textContent = '추가에 실패했습니다: ' + error.message; return; }
+    try {
+      const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
-    // 폼 초기화
-    form.reset();
-    document.getElementById('photoSort').value = '0';
-    await loadPhotos();
+      const [displayBlob, thumbBlob] = await Promise.all([
+        resizeImageToBlob(file, 2000, 0.82),
+        resizeImageToBlob(file, 400, 0.75),
+      ]);
+
+      const displayKey = `display/${uid}.jpg`;
+      const thumbKey    = `thumb/${uid}.jpg`;
+
+      const { error: displayErr } = await _supabase.storage
+        .from('gallery-images')
+        .upload(displayKey, displayBlob, { contentType: 'image/jpeg' });
+      if (displayErr) throw displayErr;
+
+      const { error: thumbErr } = await _supabase.storage
+        .from('gallery-images')
+        .upload(thumbKey, thumbBlob, { contentType: 'image/jpeg' });
+      if (thumbErr) throw thumbErr;
+
+      const { data: displayUrlData } = _supabase.storage.from('gallery-images').getPublicUrl(displayKey);
+      const { data: thumbUrlData }    = _supabase.storage.from('gallery-images').getPublicUrl(thumbKey);
+
+      const { error: insertErr } = await _supabase.from('gallery_photos').insert({
+        title, category, subcategory, sort_order,
+        path: displayUrlData.publicUrl,
+        thumb_path: thumbUrlData.publicUrl,
+      });
+      if (insertErr) throw insertErr;
+
+      form.reset();
+      document.getElementById('photoSort').value = '0';
+      await loadPhotos();
+    } catch (err) {
+      errorEl.textContent = '추가에 실패했습니다: ' + err.message;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '추가';
+    }
   });
 }
 

@@ -252,7 +252,7 @@ function initFooterGrid() {
   const allVisible = allPhotos.filter(p => p.category !== 'recent');
   allVisible.forEach(photo => {
     const li = document.createElement('li');
-    li.style.backgroundImage = `url('${photo.path}')`;
+    li.style.backgroundImage = `url('${photo.thumb_path || photo.path}')`;
 
     li.addEventListener('click', async () => {
       currentPhotos = allVisible;
@@ -293,7 +293,7 @@ function renderThumbnails(photos, activeIndex) {
     const photo = photos[i];
     const li = document.createElement('li');
 
-    li.style.backgroundImage = `url('${photo.path}')`;
+    li.style.backgroundImage = `url('${photo.thumb_path || photo.path}')`;
     li.style.backgroundSize = 'cover';
     li.style.backgroundPosition = 'center';
 
