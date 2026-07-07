@@ -207,10 +207,10 @@ async function submitComment(session) {
   const content = input.value.trim();
   if (!content) return;
 
-  // 작성자명: 로그인 시 이메일 아이디, 비회원 시 입력한 닉네임
+  // 작성자명: 로그인 시 가입한 닉네임(또는 이메일 아이디), 비회원 시 입력한 닉네임
   let authorName, userId;
   if (session) {
-    authorName = getAuthorName(session.user.email);
+    authorName = getAuthorName(session.user);
     userId = session.user.id;
   } else {
     const authorInput = document.getElementById('commentAuthor');

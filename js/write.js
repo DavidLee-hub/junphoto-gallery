@@ -111,7 +111,7 @@ function initForm(session) {
     // 닉네임 (비회원)
     let authorName;
     if (session) {
-      authorName = getAuthorName(session.user.email);
+      authorName = getAuthorName(session.user);
     } else {
       const guestName = document.getElementById('guestName').value.trim();
       if (!guestName) { errorEl.textContent = '닉네임을 입력해주세요.'; return; }

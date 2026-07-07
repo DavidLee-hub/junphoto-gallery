@@ -1,10 +1,11 @@
 // auth.js - 로그인/로그아웃 및 아이콘 상태 관리
 
-// ── 이메일 @앞 추출 (작성자명으로 사용) ──
-function getAuthorName(email) {
-  if (!email) return '익명';
-  if (email === 'cslee835@gmail.com') return '관리자';
-  return email.split('@')[0];
+// ── 작성자명 결정: 닉네임 우선, 없으면 이메일 @앞 추출 ──
+function getAuthorName(user) {
+  if (!user) return '익명';
+  if (user.email === 'cslee835@gmail.com') return '관리자';
+  const nickname = user.user_metadata && user.user_metadata.nickname;
+  return nickname || user.email.split('@')[0];
 }
 
 // ── 관리자 확인 ──
@@ -136,12 +137,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 회원가입 ──
   document.getElementById('signupSubmit').addEventListener('click', async () => {
+    const nickname = document.getElementById('signupNickname').value.trim();
     const email    = document.getElementById('signupEmail').value.trim();
     const password = document.getElementById('signupPassword').value;
     const errorEl  = document.getElementById('signupError');
     errorEl.textContent = '';
 
-    const { data, error } = await _supabase.auth.signUp({ email, password });
+    if (!nickname) {
+      errorEl.textContent = '닉네임을 입력해주세요.';
+      return;
+    }
+
+    const { data, error } = await _supabase.auth.signUp({ email, password, options: { data: { nickname } } });
     if (error) {
       errorEl.textContent = '회원가입에 실패했습니다. 다시 시도해주세요.';
     } else if (data.session) {
